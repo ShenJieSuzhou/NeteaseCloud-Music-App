@@ -5,8 +5,8 @@
   </div>
 </template>
 
+
 <script>
-// @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
@@ -16,3 +16,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+#home {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+</style>
+
