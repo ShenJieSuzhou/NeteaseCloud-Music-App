@@ -1,5 +1,6 @@
 <template>
   <div class="rootview">
+    <router-view></router-view>
     <Tabbar></Tabbar>
   </div>
 </template>
