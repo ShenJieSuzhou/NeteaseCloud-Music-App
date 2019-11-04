@@ -1,8 +1,20 @@
 <template>
   <div id="discovery">
-    <h1>This is an discovery page</h1>
+    <TopNav></TopNav>
   </div>
 </template>
+
+<script>
+import TopNav from '../components/header/commonHeader'
+
+export default {
+  components: {
+    TopNav
+  }
+}
+</script>
+
+
 
 <style lang="scss">
 

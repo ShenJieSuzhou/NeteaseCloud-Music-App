@@ -17,6 +17,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../style/scss/index.scss';
 #rootview {
   position: fixed;
   top: 0;
