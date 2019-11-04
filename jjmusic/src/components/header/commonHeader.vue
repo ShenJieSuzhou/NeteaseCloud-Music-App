@@ -48,10 +48,11 @@ export default {
         position: absolute;
         .box {
             display: block;
-            @include wh(16rem, 1.5rem);
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
+            border-radius: 10px;
+            width: 100%;
+            height: 25px;
+            @include center;
+            background-color: white;
         }
     }
 
