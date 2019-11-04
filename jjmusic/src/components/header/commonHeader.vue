@@ -22,36 +22,49 @@ export default {
 @import "../../style/scss/variable.scss";
 @import '../../style/scss/mixin.scss';
 #topNav {
-    // position: relative;
+    position: relative;
     height: 64px;
     width: 100%;
     margin: 0%;
     background: $color-theme;
     #micro {
-        // position: absolute;
-        float: left;
-        margin-left: 15px;
-        margin-top: 20px;  
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
         .icon_style {
+            display: block;
             @include wh(1.5rem, 1.5rem);
-            margin-top: .2rem;
-            margin-bottom: .1rem;
+            margin-left: 11px;
+            margin-top: 20px;
         }
     }
 
     #searchBox {
-        // flex:1;
+        top: 0;
+        left:60px;
+        right:60px;
+        height: 100%;
+        position: absolute;
+        .box {
+            display: block;
+            @include wh(16rem, 1.5rem);
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 
     #wave {
-        // position: absolute;
-        float:right;
-        margin-right: 15px;
-        // margin-top: 20px;  
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
         .icon_style {
+            display: block;
             @include wh(1.5rem, 1.5rem);
-            margin-top: .2rem;
-            margin-bottom: .1rem;
+            margin-right: 11px;
+            margin-top: 20px;
         }
     }
 
