@@ -2,8 +2,10 @@
   <div id="discovery">
     <TopNav></TopNav>
     <div class="headerMenus">
-      <button class="recomendBtn" type="text" value="">个性推荐</button>
-      <button class="radio" type="text">主播电台</button>
+      <el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tab-pane label="个性推荐" name="first">个性推荐</el-tab-pane>
+        <el-tab-pane label="主播电台" name="second">主播电台</el-tab-pane>
+    </el-tabs>
     </div>
     
     
@@ -15,9 +17,21 @@
 import TopNav from '../components/header/commonHeader'
 
 export default {
-  components: {
-    TopNav
-  }
+  data() {
+      return {
+        activeName: 'first'
+      };
+    },
+    methods: {
+      handleClick() {
+        
+
+
+      }
+    },
+    components: {
+      TopNav
+    }
 }
 </script>
 
@@ -35,28 +49,36 @@ export default {
     border: $color-theme 1px solid; 
     margin-top: -1px;
     padding: 0%;
-    .recomendBtn {
-      display: flex;
-      width: 50%; 
-      height: 100%;
-      color: white;
-      font-size: 1rem;
-      font-family: Arial, Helvetica, sans-serif;
-      text-align: center;
-      font-weight: bold;
-      display: inline-block;
+
+    .el-tabs--top {
+      width: 100%;
+      .el-tabs__nav {
+        width: 100%;
+        .el-tabs__active-bar {
+          background-color: white;
+          width: 15% !important;
+          margin-left: 17.5%;
+        }
+        .el-tabs__item {
+          width: 50%;
+        }
+      }
+
+      .el-tabs__nav-wrap::after {
+          background-color: $color-theme;
+      }
+
+      .el-tabs__item {
+        color: #fff;
+        padding: 0;
+      }
+
+      .el-tabs__item:hover {
+        color: #fff;
+        cursor: pointer;
+      }
     }
-    .radio {
-      display: flex;
-      width: 50%; 
-      height: 100%;
-      text-align: center;
-      display: inline-block;
-      color: white;
-      font-size: 1rem;
-      font-weight: bold;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+
   }
 
 </style>
