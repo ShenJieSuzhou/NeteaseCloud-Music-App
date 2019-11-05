@@ -36,6 +36,7 @@ export default {
     width: 100%;
     margin: 0%;
     background: $color-theme;
+    border: $color-theme 1px solid;
     #micro {
         position: absolute;
         top: 0;
@@ -88,7 +89,6 @@ export default {
             margin-top: 20px;
         }
     }
-
 }
 
 </style>
