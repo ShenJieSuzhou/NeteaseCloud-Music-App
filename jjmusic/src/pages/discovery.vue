@@ -3,8 +3,8 @@
     <TopNav></TopNav>
     <div class="headerMenus">
       <el-tabs v-model="activeName" @tab-click="handleClick">
-        <el-tab-pane label="个性推荐" name="first">个性推荐</el-tab-pane>
-        <el-tab-pane label="主播电台" name="second">主播电台</el-tab-pane>
+        <el-tab-pane label="个性推荐" name="first"></el-tab-pane>
+        <el-tab-pane label="主播电台" name="second"></el-tab-pane>
     </el-tabs>
     </div>
     
@@ -15,6 +15,8 @@
 
 <script>
 import TopNav from '../components/header/commonHeader'
+// import Recommend from '../components/recommend/recommend'
+// import Radio from '../components/radio/radio'
 
 export default {
   data() {
@@ -25,12 +27,11 @@ export default {
     methods: {
       handleClick() {
         
-
-
       }
     },
     components: {
-      TopNav
+      TopNav,
+
     }
 }
 </script>
