@@ -4,8 +4,10 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
 import './style/theme/index.css'
+import { Swipe, SwipeItem } from 'vant';
 
 Vue.use(ElementUI);
+Vue.use(Swipe).use(SwipeItem);
 Vue.config.productionTip = false
 
 new Vue({
