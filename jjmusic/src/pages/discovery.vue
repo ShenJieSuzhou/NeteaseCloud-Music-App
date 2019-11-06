@@ -91,6 +91,13 @@ export default {
         color: #fff;
         cursor: pointer;
       }
+
+      .el-tabs__content {
+        margin-top: -5px;
+        width: 100%;
+        margin-left: -1px;
+        margin-right: auto;  
+      }
     }
 
   }

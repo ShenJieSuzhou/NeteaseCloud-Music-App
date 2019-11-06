@@ -1,14 +1,13 @@
 <template>
     <div class="recommend" ref="recommend">
-        <scroll class="recommend-content" ref="scroll">
+        <Scroll class="recommend-content" ref="scroll">
             <div>
                 <div v-show="banner.length" class="decorate" v-if="banner.length"></div>
                 <div v-if="banner.length" class="slider-wrapper">
                     <van-swipe :autoplay="3000" indicator-color="white">
-                        <van-swipe-item>1</van-swipe-item>
-                        <van-swipe-item>2</van-swipe-item>
-                        <van-swipe-item>3</van-swipe-item>
-                        <van-swipe-item>4</van-swipe-item>
+                        <van-swipe-item v-for="(image, index) in banner" :key="index">
+                            <img :src="image" />
+                        </van-swipe-item>
                     </van-swipe>
                 </div>
                 <div class="quickMenus">
@@ -36,7 +35,7 @@
                     </ul>
                 </div>
             </div>
-        </scroll>
+        </Scroll>
     </div>
 </template>
 
@@ -46,14 +45,14 @@ import Scroll from '../scroll/scroll';
     data () {
         return {
             banner: [
-                '../../assets/images/test/banner/1.jpeg',
-                '../../assets/images/test/banner/2.jpeg',
-                '../../assets/images/test/banner/3.jpeg',
-                '../../assets/images/test/banner/4.jpeg',
-                '../../assets/images/test/banner/5.jpeg',
-                '../../assets/images/test/banner/6.jpeg',
-                '../../assets/images/test/banner/7.jpeg',
-                '../../assets/images/test/banner/8.jpeg',
+                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/1.jpeg',
+                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/2.jpeg',
+                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/3.jpeg',
+                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/4.jpeg',
+                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/5.jpeg',
+                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/6.jpeg',
+                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/7.jpeg',
+                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/8.jpeg',
             ]
         }
     },
@@ -61,7 +60,9 @@ import Scroll from '../scroll/scroll';
 
     },
     methods: {
-
+        onChange(index) {
+            console.log('当前 Swipe 索引：' + index);
+        }
     },
     components: {
         Scroll
@@ -74,24 +75,19 @@ import Scroll from '../scroll/scroll';
 @import "../../style/scss/variable.scss";
 
 .recommend {
-    position: fixed;
+    display: absolute;
     width: 100%;
-    top: 88px;
-    bottom: 0;
-    z-index: 100;
+    height: 100%;
 
     .recommend-content {
         width: 100%;
         height: 100%;
         overflow: hidden;
         .decorate {
-            position: absolute;
-            top: -30vh;
             z-index: -10;
             background: $color-theme;
             width: 100%;
-            height: 50vh;
-            vertical-align: inherit;
+            height: 8rem;
         }
         .slider-wrapper {
             width: 96%;
