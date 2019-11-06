@@ -45,14 +45,14 @@ import Scroll from '../scroll/scroll';
     data () {
         return {
             banner: [
-                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/1.jpeg',
-                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/2.jpeg',
-                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/3.jpeg',
-                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/4.jpeg',
-                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/5.jpeg',
-                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/6.jpeg',
-                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/7.jpeg',
-                '/Users/shenjie/Documents/Myproject/VueProj/NeteaseCloud-Music-App/jjmusic/src/assets/images/test/banner/8.jpeg',
+                'http://p1.music.126.net/v9HRHiUWjx43IfF5t6VpHw==/109951164470689529.jpg?imageView&quality=89',
+                'http://p1.music.126.net/KP4T1dHHiH0nYdTI0ublVg==/109951164470734422.jpg?imageView&quality=89',
+                'http://p1.music.126.net/-wDwFA0g2up2N5DXQnJzlQ==/109951164470472507.jpg?imageView&quality=89',
+                'http://p1.music.126.net/k4vd0A0dBwJ-w16x-t-6Vw==/109951164471342210.jpg?imageView&quality=89',
+                'http://p1.music.126.net/A9HPyPW-JWplFLZm2x2cBA==/109951164471348282.jpg?imageView&quality=89',
+                'http://p1.music.126.net/vdYlz6MPauUO99ByMUlJbw==/109951164471752672.jpg?imageView&quality=89',
+                'http://p1.music.126.net/vwwJwWnl5LbjZ0F5KZdLCg==/109951164471359634.jpg?imageView&quality=89',
+                'http://p1.music.126.net/VaMj97k0TfiRcZlU19xxvA==/109951164471363119.jpg?imageView&quality=89',
             ]
         }
     },
