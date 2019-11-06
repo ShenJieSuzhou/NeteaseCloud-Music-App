@@ -75,7 +75,6 @@ import Scroll from '../scroll/scroll';
 @import "../../style/scss/variable.scss";
 
 .recommend {
-    display: absolute;
     width: 100%;
     height: 100%;
 
@@ -84,14 +83,16 @@ import Scroll from '../scroll/scroll';
         height: 100%;
         overflow: hidden;
         .decorate {
-            z-index: -10;
+            display: absolute;
             background: $color-theme;
             width: 100%;
             height: 8rem;
         }
         .slider-wrapper {
             width: 96%;
-            margin: 0 auto;
+            margin-top: -120px;
+            margin-left: auto;
+            margin-right: auto; 
             border-radius: 5px;
             overflow: hidden;
         }
