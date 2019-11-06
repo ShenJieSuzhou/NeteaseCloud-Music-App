@@ -77,7 +77,7 @@ import Scroll from '../scroll/scroll';
 .recommend {
     width: 100%;
     height: 100%;
-
+    
     .recommend-content {
         width: 100%;
         height: 100%;
@@ -95,6 +95,22 @@ import Scroll from '../scroll/scroll';
             margin-right: auto; 
             border-radius: 5px;
             overflow: hidden;
+        }
+        img {
+            width: 98%;
+            border-radius: 5px;
+        }
+        .quickMenus {
+            width: 100%;
+            height: 4rem;
+            background-color: white;
+
+            button {
+                width: 25%;
+                height: 4rem;
+                background-color: $color-theme;
+                color: white;
+            }
         }
     }
 }

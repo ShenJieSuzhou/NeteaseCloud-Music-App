@@ -97,6 +97,7 @@ export default {
         width: 100%;
         margin-left: -1px;
         margin-right: auto;  
+        background-color: white;
       }
     }
 
