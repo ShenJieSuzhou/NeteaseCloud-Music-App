@@ -46,7 +46,7 @@ export default {
         left: 0;
         right: 0;
         bottom: -1px;
-        @include wh(100%, 2.45rem);
+        @include wh(100%, 3rem);
         display: flex;
         box-shadow: 0 -0.026667rem 0.053333rem rgba(0,0,0,.1);
     }
@@ -58,8 +58,8 @@ export default {
         align-items: center;
         .icon_style{
 			@include wh(1.3rem, 1.3rem);
-            margin-top: .2rem;
-            margin-bottom: .1rem;
+            margin-top: .3rem;
+            margin-bottom: .3rem;
             fill: #ccc;
 		}
 		span{

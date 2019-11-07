@@ -102,7 +102,6 @@ export default {
         margin-left: -1px;
         margin-right: auto;  
         background-color: white;
-        margin-bottom: 2.45rem;
       }
     }
 
