@@ -45,8 +45,7 @@ export default {
         z-index: 100;
         left: 0;
         right: 0;
-        bottom: 0;
-        margin-bottom: .1rem;
+        bottom: -1px;
         @include wh(100%, 2.45rem);
         display: flex;
         box-shadow: 0 -0.026667rem 0.053333rem rgba(0,0,0,.1);
