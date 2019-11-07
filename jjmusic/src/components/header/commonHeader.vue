@@ -42,6 +42,7 @@ export default {
         top: 0;
         left: 0;
         height: 100%;
+        background: $color-theme;
         .icon_style {
             display: block;
             @include wh(1.5rem, 1.5rem);
@@ -56,6 +57,7 @@ export default {
         right:60px;
         height: 100%;
         position: absolute;
+        background: $color-theme;
         .el-input.el-input--prefix{
             @include center;            
         }

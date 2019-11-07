@@ -1,5 +1,5 @@
 <template>
-    <div ref="wrapper">
+    <div class="wrapper" ref="wrapper">
     <slot></slot>
   </div>
 </template>
@@ -89,5 +89,12 @@ export default {
 </script>
 
 <style lang="scss">
-
+    // .wrapper{
+    //     width: 100%;
+    //     position: absolute;
+    //     top: 45px;
+    //     bottom: 50px;  /*关键*/
+    //     overflow: hidden;
+    //     z-index: 1;
+    // }
 </style>

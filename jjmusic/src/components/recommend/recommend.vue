@@ -126,24 +126,27 @@ import HostRadio from '../../mock/hostRadio.js'
 @import "../../style/scss/variable.scss";
 
 .recommend {
+    position: fixed;
     width: 100%;
-    height: 100%;
-    
+    top: 114px;
+    bottom: 0;
+    z-index: 100;
+
     .recommend-content {
         width: 100%;
         height: 100%;
         overflow: hidden;
         .decorate {
-            display: absolute;
+            position: absolute;
+            height: 8rem;
+            z-index: -10;
             background: $color-theme;
             width: 100%;
-            height: 8rem;
+            vertical-align: inherit;
         }
         .slider-wrapper {
             width: 96%;
-            margin-top: -120px;
-            margin-left: auto;
-            margin-right: auto; 
+            margin: 0 auto;
             border-radius: 5px;
             overflow: hidden;
         }

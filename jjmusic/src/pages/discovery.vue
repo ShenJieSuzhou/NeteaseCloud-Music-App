@@ -54,6 +54,9 @@ export default {
 <style lang="scss">
 @import "../style/scss/variable.scss";
 @import '../style/scss/mixin.scss';
+  #discovery {
+    background-color: $color-theme;
+  }
 
   .headerMenus {
     display: flex;
@@ -68,6 +71,7 @@ export default {
       width: 100%;
       .el-tabs__nav {
         width: 100%;
+        background-color: $color-theme;
         .el-tabs__active-bar {
           background-color: white;
           width: 15% !important;
