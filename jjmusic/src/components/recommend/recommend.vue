@@ -17,7 +17,10 @@
                     <button>排行榜</button>
                 </div>
                 <div class="recommend-list">
-                    <h1 class="title">推荐歌单</h1>
+                    <div class="section-header">
+                        <h1 class="title">推荐歌单</h1>
+                        <svg t="1573096972838" class="arrow" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2043" width="200" height="200"><path d="M720.2816 490.752L347.1872 117.76a30.72 30.72 0 1 0-43.4688 43.4688l351.6416 351.232-351.6416 351.3856a30.72 30.72 0 1 0 43.4688 43.4176l373.0944-373.0944a30.72 30.72 0 0 0 0-43.4176z" fill="#2c2c2c" p-id="2044"></path></svg>
+                    </div>
                     <ul>
                         <li class="item" v-for="item in PlayList" :key="item.id">
                             <div class="icon">
@@ -35,7 +38,10 @@
                     </ul>
                 </div>
                 <div class="latestsong-list">
-                    <h1 class="title">最新音乐</h1>
+                    <div class="section-header">
+                        <h1 class="title">最新音乐</h1>
+                        <svg t="1573096972838" class="arrow" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2043" width="200" height="200"><path d="M720.2816 490.752L347.1872 117.76a30.72 30.72 0 1 0-43.4688 43.4688l351.6416 351.232-351.6416 351.3856a30.72 30.72 0 1 0 43.4688 43.4176l373.0944-373.0944a30.72 30.72 0 0 0 0-43.4176z" fill="#2c2c2c" p-id="2044"></path></svg>
+                    </div>
                     <ul>
                         <li class="item" v-for="item in LatestSongs" :key="item.id">
                             <div class="icon">
@@ -53,7 +59,10 @@
                     </ul>
                 </div>
                 <div class="hostradio-list">
-                    <h1 class="title">主播电台</h1>
+                    <div class="section-header">
+                        <h1 class="title">主播电台</h1>
+                        <svg t="1573096972838" class="arrow" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2043" width="200" height="200"><path d="M720.2816 490.752L347.1872 117.76a30.72 30.72 0 1 0-43.4688 43.4688l351.6416 351.232-351.6416 351.3856a30.72 30.72 0 1 0 43.4688 43.4176l373.0944-373.0944a30.72 30.72 0 0 0 0-43.4176z" fill="#2c2c2c" p-id="2044"></path></svg>
+                    </div>
                     <ul>
                         <li class="item" v-for="item in HostRadio" :key="item.id">
                             <div class="icon">
@@ -159,15 +168,7 @@ import HostRadio from '../../mock/hostRadio.js'
             box-sizing: border-box;
             width: 100%;
             text-align: center;
-        .title {
-            height: 65px;
-            line-height: 65px;
-            padding-left: 1.5%;
-            text-align: left;
-            font-size: $font-size-medium;
-            font-weight: bold;
-            color: $color-text;
-        }
+        
         .item {
             display: inline-block;
             position: relative;
@@ -205,10 +206,10 @@ import HostRadio from '../../mock/hostRadio.js'
                 line-height: 16px;
                 text-align: left;
                 height: 40px;
-                line-height: 16px;
-                overflow: hidden;
                 margin-bottom: 10px;
-                font-size: $font-size-small;
+                color: black;
+                font-size: 12px;
+                font-family: Arial, Helvetica, sans-serif;
             }
         }
     }
@@ -218,15 +219,7 @@ import HostRadio from '../../mock/hostRadio.js'
             box-sizing: border-box;
             width: 100%;
             text-align: center;
-        .title {
-            height: 65px;
-            line-height: 65px;
-            padding-left: 1.5%;
-            text-align: left;
-            font-size: $font-size-medium;
-            font-weight: bold;
-            color: $color-text;
-        }
+
         .item {
             display: inline-block;
             position: relative;
@@ -265,9 +258,11 @@ import HostRadio from '../../mock/hostRadio.js'
                 text-align: left;
                 height: 40px;
                 line-height: 16px;
-                overflow: hidden;
                 margin-bottom: 10px;
                 font-size: $font-size-small;
+                color: black;
+                font-size: 12px;
+                font-family: Arial, Helvetica, sans-serif;
             }
         }
     }
@@ -277,15 +272,7 @@ import HostRadio from '../../mock/hostRadio.js'
             box-sizing: border-box;
             width: 100%;
             text-align: center;
-        .title {
-            height: 65px;
-            line-height: 65px;
-            padding-left: 1.5%;
-            text-align: left;
-            font-size: $font-size-medium;
-            font-weight: bold;
-            color: $color-text;
-        }
+        
         .item {
             display: inline-block;
             position: relative;
@@ -324,10 +311,38 @@ import HostRadio from '../../mock/hostRadio.js'
                 text-align: left;
                 height: 40px;
                 line-height: 16px;
-                overflow: hidden;
                 margin-bottom: 10px;
-                font-size: $font-size-small;
+                color: black;
+                font-size: 12px;
+                font-family: Arial, Helvetica, sans-serif;
             }
+        }
+    }
+
+    .section-header {
+        display: inline-block;
+        position: relative;
+        height: 65px;
+        width: 100%;
+        .title {
+            position: absolute;
+            height: 65px;
+            width: 30%;
+            line-height: 65px;
+            padding-left: 1.5%;
+            text-align: left;
+            font-size: $font-size-large-s;
+            font-weight: bold;
+            color: $color-text;
+            @include center;
+            left: 16%;
+        }
+        .arrow {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            @include center;
+            left: 25%;
         }
     }
 
