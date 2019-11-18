@@ -106,34 +106,61 @@
 
 <script>
 import Scroll from '../scroll/scroll';
-import PlayList from '../../mock/recommendList.js'
-import LatestSongs from '../../mock/latestMusic.js'
-import HostRadio from '../../mock/hostRadio.js'
+// import PlayList from '../../mock/recommendList.js'
+// import LatestSongs from '../../mock/latestMusic.js'
+// import HostRadio from '../../mock/hostRadio.js'
+import {getBanner, getRecommendLists, getLatestMusic, getHostRadio} from '../../api/recommend.js'
+import {ERR_OK} from '../../api/config.js'
+
   export default {
     data () {
         return {
-            banner: [
-                'http://p1.music.126.net/v9HRHiUWjx43IfF5t6VpHw==/109951164470689529.jpg?imageView&quality=89',
-                'http://p1.music.126.net/KP4T1dHHiH0nYdTI0ublVg==/109951164470734422.jpg?imageView&quality=89',
-                'http://p1.music.126.net/-wDwFA0g2up2N5DXQnJzlQ==/109951164470472507.jpg?imageView&quality=89',
-                'http://p1.music.126.net/k4vd0A0dBwJ-w16x-t-6Vw==/109951164471342210.jpg?imageView&quality=89',
-                'http://p1.music.126.net/A9HPyPW-JWplFLZm2x2cBA==/109951164471348282.jpg?imageView&quality=89',
-                'http://p1.music.126.net/vdYlz6MPauUO99ByMUlJbw==/109951164471752672.jpg?imageView&quality=89',
-                'http://p1.music.126.net/vwwJwWnl5LbjZ0F5KZdLCg==/109951164471359634.jpg?imageView&quality=89',
-                'http://p1.music.126.net/VaMj97k0TfiRcZlU19xxvA==/109951164471363119.jpg?imageView&quality=89',
-            ],
-            PlayList,
-            LatestSongs,
-            HostRadio
+            banner: [],
+            playList: [],
+            latestSongs: [],
+            hostRadio: []
         }
     },
     created () {
-
+        this.getScrollBanner()
+        this.getRecommendList()
+        this.getLatestSongs()
+        this.getHostRadio()
     },
     methods: {
         onChange(index) {
             console.log('当前 Swipe 索引：' + index);
+        },
+
+        // 获取轮播图
+        getScrollBanner () {
+            getBanner().then((res) => {
+                if (res.status === ERR_OK) {
+                    let list = res.data.banners
+                    this.banner = list.splice(4)
+                } else {
+                    console.error('Banner 获取失败') 
+                }
+            })
+        },
+
+        // 获取每日推荐列表
+        getRecommendList () {
+            getRecommendLists().then((res) => {
+                if (res.status === ERR_OK) {
+
+                }
+            })
+        },
+
+        getLatestSongs () {
+
+        },
+
+        getHostRadio () {
+
         }
+
     },
     components: {
         Scroll
