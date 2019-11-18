@@ -2,7 +2,7 @@ import axios from 'axios'
 import {HOST} from './config'
 
 export function getBanner () {
-    const url = HOST + '/banner?type=2'
+    const url = HOST + '/banner'
     return axios.get(url)
 }
 

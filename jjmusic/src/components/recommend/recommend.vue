@@ -5,8 +5,8 @@
                 <div v-show="banner.length" class="decorate" v-if="banner.length"></div>
                 <div v-if="banner.length" class="slider-wrapper">
                     <van-swipe :autoplay="3000" indicator-color="white">
-                        <van-swipe-item v-for="(image, index) in banner" :key="index">
-                            <img :src="image" />
+                        <van-swipe-item v-for="(item, index) in banner" :key="index">
+                            <img :src="item.imageUrl" />
                         </van-swipe-item>
                     </van-swipe>
                 </div>
@@ -42,7 +42,7 @@
                         <svg t="1573096972838" class="arrow" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2043" width="200" height="200"><path d="M720.2816 490.752L347.1872 117.76a30.72 30.72 0 1 0-43.4688 43.4688l351.6416 351.232-351.6416 351.3856a30.72 30.72 0 1 0 43.4688 43.4176l373.0944-373.0944a30.72 30.72 0 0 0 0-43.4176z" fill="#2c2c2c" p-id="2044"></path></svg>
                     </div>
                     <ul>
-                        <li class="item" v-for="item in PlayList" :key="item.id">
+                        <li class="item" v-for="item in playList" :key="item.id">
                             <div class="icon">
                                 <div class="gradients"></div>
                                 <img :src="item.image" alt="">
@@ -63,7 +63,7 @@
                         <svg t="1573096972838" class="arrow" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2043" width="200" height="200"><path d="M720.2816 490.752L347.1872 117.76a30.72 30.72 0 1 0-43.4688 43.4688l351.6416 351.232-351.6416 351.3856a30.72 30.72 0 1 0 43.4688 43.4176l373.0944-373.0944a30.72 30.72 0 0 0 0-43.4176z" fill="#2c2c2c" p-id="2044"></path></svg>
                     </div>
                     <ul>
-                        <li class="item" v-for="item in LatestSongs" :key="item.id">
+                        <li class="item" v-for="item in latestSongs" :key="item.id">
                             <div class="icon">
                                 <div class="gradients"></div>
                                 <img :src="item.image" alt="">
@@ -84,7 +84,7 @@
                         <svg t="1573096972838" class="arrow" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2043" width="200" height="200"><path d="M720.2816 490.752L347.1872 117.76a30.72 30.72 0 1 0-43.4688 43.4688l351.6416 351.232-351.6416 351.3856a30.72 30.72 0 1 0 43.4688 43.4176l373.0944-373.0944a30.72 30.72 0 0 0 0-43.4176z" fill="#2c2c2c" p-id="2044"></path></svg>
                     </div>
                     <ul>
-                        <li class="item" v-for="item in HostRadio" :key="item.id">
+                        <li class="item" v-for="item in hostRadio" :key="item.id">
                             <div class="icon">
                                 <div class="gradients"></div>
                                 <img :src="item.image" alt="">
@@ -106,9 +106,6 @@
 
 <script>
 import Scroll from '../scroll/scroll';
-// import PlayList from '../../mock/recommendList.js'
-// import LatestSongs from '../../mock/latestMusic.js'
-// import HostRadio from '../../mock/hostRadio.js'
 import {getBanner, getRecommendLists, getLatestMusic, getHostRadio} from '../../api/recommend.js'
 import {ERR_OK} from '../../api/config.js'
 
@@ -148,17 +145,31 @@ import {ERR_OK} from '../../api/config.js'
         getRecommendList () {
             getRecommendLists().then((res) => {
                 if (res.status === ERR_OK) {
-
+                    this.playList = res.data.result
+                } else {
+                    console.error('getRecommendList 获取失败')
                 }
             })
         },
 
         getLatestSongs () {
-
+            getLatestMusic().then((res) => {
+                if(res.status === ERR_OK) {
+                    this.latestSongs = res.data.albums
+                } else {
+                    console.error('getLatestMusic 获取失败')
+                }
+            })
         },
 
         getHostRadio () {
-
+            getHostRadio().then((res) => {
+                if(res.status === ERR_OK) {
+                    this.hostRadio =  res.data.djRadios
+                } else {
+                    console.error('getHostRadio 获取失败')
+                }
+            })
         }
 
     },
