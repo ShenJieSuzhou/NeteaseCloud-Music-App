@@ -45,14 +45,15 @@
                         <li class="item" v-for="item in playList" :key="item.id">
                             <div class="icon">
                                 <div class="gradients"></div>
-                                <img :src="item.image" alt="">
+                                <img :src="item.picUrl">
+                                 
                             </div>
                             <p class="play-count">
                                 <i class="fa fa-headphones"></i>
-                                {{ item.playAmount }} 万
+                                {{ Math.floor(item.playCount / 10000) }}万
                             </p>
                             <div class="text">
-                                <p class="name">{{ item.desc }}</p>
+                                <p class="name">{{ item.name }}</p>
                             </div>
                         </li>
                     </ul>
