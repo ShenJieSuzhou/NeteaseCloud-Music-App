@@ -6,6 +6,7 @@ import Video from '../pages/video.vue'
 import MyMusic from '../pages/myMusic.vue'
 import Friends from '../pages/friends.vue'
 import Me from '../pages/me.vue'
+import MusicList from '../components/musicList/musicList.vue'
 
 Vue.use(VueRouter)
 
@@ -20,7 +21,13 @@ const routes = [
       },
       {
         path: 'discovery',
-        component: Discovery
+        component: Discovery,
+        children: [
+          {
+            path: ':id',
+            component: MusicList
+          }
+        ]
       },
       {
         path: 'video',
