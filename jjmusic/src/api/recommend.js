@@ -17,6 +17,6 @@ export function getLatestMusic () {
 }
 
 export function getHostRadio () {
-    const url = HOST + '/dj/hot?limit=8'
+    const url = HOST + '/dj/hot?limit=9'
     return axios.get(url)
 }
