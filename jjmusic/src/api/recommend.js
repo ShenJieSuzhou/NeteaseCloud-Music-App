@@ -20,3 +20,8 @@ export function getHostRadio () {
     const url = HOST + '/dj/hot?limit=9'
     return axios.get(url)
 }
+
+export function getRecommendListDetail (id) {
+    const url = HOST + `/playlist/detail?id=${id}`
+    return axios.get(url)
+  }

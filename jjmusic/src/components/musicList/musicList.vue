@@ -42,13 +42,118 @@
 import Scroll from '../scroll/scroll'
 import SongList from '../songLists/songList'
 import Loading  from '../loading/loading'
-
-
-
-
+import {getRecommendListDetail} from '../../api/recommend.js'
+import {ERR_OK} from '../../api/config.js'
+import {createRecommendListSong} from '../../api/song.js'
+import {playlistMixin} from '../../api/mixin.js'
+import {mapGetters, mapActions} from 'vuex'
+const RESERVED_HEIGHT = 44
 
 export default {
-    
+    mixins: [playlistMixin],
+
+    data () {
+        return {
+            listDetail: [],
+            scrollY: 0,
+            headerTitle: '歌单'
+        }
+    },
+    created () {
+        this._getRecommendListDetail(this.musicList.id)
+        this.probeType = 3
+        this.listenScroll = true
+    },
+    mounted () {
+        this.imageHeight = this.$refs.bgImage.clientHeight
+        this.minTranslateY = -this.imageHeight + RESERVED_HEIGHT
+    },
+    computed: {
+        playCount () {
+            if (!this.musicList.playCount) {
+                return
+            }
+            if (this.musicList.playCount < 1e5) {
+                return Math.floor(this.musicList.playCount)
+            } else {
+                return Math.floor(this.musicList.playCount / 10000) + '万'
+            }
+        },
+        bgStyle () {
+            return `background-image: url(${this.musicList.picUrl})`
+        },
+        title () {
+            return this.musicList.name
+        },
+        ...mapGetters([
+            'musicList'
+        ])
+    },
+    methods: {
+        handlePLaylist (playlist) {
+            const bottom = playlist.length > 0 ? '60px' : ''
+            this.$refs.list.$el.style.bottom = bottom
+            this.$refs.list.refresh()
+        },
+        selectedItem (item, index) {
+            this.selectPlay({
+                list: this.listDetail,
+                index: index
+            })
+        },
+        scroll (pos) {
+            this.scrollY = pos.y
+        },
+        back () {
+            this.$router.back()
+        },
+        _getRecommendListDetail (id) {
+            if (!id) {
+                this.$router.push('/recommend')
+                return
+            }
+            getRecommendListDetail(id).then((res) => {
+                if (res.status === ERR_OK) {
+                    this.listDetail = res.data.result.tracks.map((item) => {
+                        return createRecommendListSong(item)
+                    })
+                } else {
+                    console.error('getRecommendListDetail 获取失败!')
+                }
+            })
+        },
+        sequence () {
+            let list = this.listDetail
+            this.sequencePlay({
+                list: list
+            })
+        },
+        ...mapActions([
+            'selectPlay',
+            'sequencePlay'
+        ])
+    },
+    watch: {
+            scrollY (newY) {
+                // let translateY = Math.max(this.minTranslateY, newY)
+                const percent = Math.abs(newY / this.imageHeight)
+                if (newY < (this.minTranslateY + RESERVED_HEIGHT - 20)) {
+                    this.headerTitle = this.musicList.name
+                } else {
+                    this.headerTitle = '歌单'
+                }
+                if (newY < 0) {
+                    this.$refs.header.style.background = `rgba(212, 68, 57, ${percent})`
+                } else {
+                    this.$refs.header.style.background = `rgba(212, 68, 57, 0)`
+                }
+            }
+        },
+        components: {
+            SongList,
+            Scroll,
+            Loading
+        }
 }
 </script>
 
