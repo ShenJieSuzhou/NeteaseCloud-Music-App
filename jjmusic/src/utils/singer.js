@@ -6,4 +6,3 @@ export default class Singer {
       this.aliaName = aliaName
     }
   }
-  
