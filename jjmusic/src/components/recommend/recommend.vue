@@ -104,7 +104,7 @@
 <script>
 import Scroll from '../scroll/scroll';
 import {getBanner, getRecommendLists, getLatestMusic, getHostRadio} from '../../api/recommend.js'
-import {ERR_OK} from '../../api/config.js'
+import {ERR_OK} from '../../utils/config.js'
 
   export default {
     data () {

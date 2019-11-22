@@ -43,9 +43,9 @@ import Scroll from '../scroll/scroll'
 import SongList from '../songLists/songList'
 import Loading  from '../loading/loading'
 import {getRecommendListDetail} from '../../api/recommend.js'
-import {ERR_OK} from '../../api/config.js'
-import {createRecommendListSong} from '../../api/song.js'
-import {playlistMixin} from '../../api/mixin.js'
+import {ERR_OK} from '../../utils/config.js'
+import {createRecommendListSong} from '../../api/getSong.js'
+import {playlistMixin} from '../../utils/mixin.js'
 import {mapGetters, mapActions} from 'vuex'
 const RESERVED_HEIGHT = 44
 
