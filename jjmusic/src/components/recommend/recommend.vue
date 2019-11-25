@@ -152,7 +152,7 @@ import { mapMutations, mapActions } from 'vuex';
             this.$route.push({
                 path: `/discovery/${item.id}`
             })
-            
+            this.setMusicList(item)
         },
 
         // 获取轮播图
