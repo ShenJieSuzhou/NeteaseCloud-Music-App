@@ -105,6 +105,7 @@
 import Scroll from '../scroll/scroll';
 import {getBanner, getRecommendLists, getLatestMusic, getHostRadio} from '../../api/recommend.js'
 import {ERR_OK} from '../../utils/config.js'
+import { mapMutations, mapActions } from 'vuex';
 
   export default {
     data () {
@@ -149,8 +150,9 @@ import {ERR_OK} from '../../utils/config.js'
         selectList (item) {
             console.log(item)
             this.$route.push({
-                path: `/recommend/${item.id}`
+                path: `/discovery/${item.id}`
             })
+            
         },
 
         // 获取轮播图
@@ -194,7 +196,14 @@ import {ERR_OK} from '../../utils/config.js'
                     console.error('getHostRadio 获取失败')
                 }
             })
-        }
+        },
+        ...mapMutations({
+            setMusicList: 'SET_MUSIC_LIST',
+            setFullScreen: 'SET_FULL_SCREEN'
+        }),
+        ...mapActions([
+            'insertSong'
+        ])
 
     },
     components: {
