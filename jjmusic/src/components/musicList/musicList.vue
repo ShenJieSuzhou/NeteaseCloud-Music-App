@@ -36,6 +36,7 @@
             </div>
         </div>
     </transition>
+     
 </template>
 
 <script>
@@ -109,7 +110,7 @@ export default {
         },
         _getRecommendListDetail (id) {
             if (!id) {
-                this.$router.push('/recommend')
+                this.$router.push('/discovery')
                 return
             }
             getRecommendListDetail(id).then((res) => {

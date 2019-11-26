@@ -6,7 +6,13 @@ import Video from '../pages/video.vue'
 import MyMusic from '../pages/myMusic.vue'
 import Friends from '../pages/friends.vue'
 import Me from '../pages/me.vue'
-import MusicList from '../components/musicList/musicList.vue'
+// import MusicList from '../components/musicList/musicList.vue'
+
+const MusicList = (resolve) => {
+  import('../components/musicList/musicList.vue').then((module) => {
+    resolve(module)
+  })
+}
 
 Vue.use(VueRouter)
 
@@ -17,10 +23,10 @@ const routes = [
     children: [
       {
         path: '',
-        redirect: 'discovery'
+        redirect: '/discovery'
       },
       {
-        path: 'discovery',
+        path: '/discovery',
         component: Discovery,
         children: [
           {
@@ -30,21 +36,21 @@ const routes = [
         ]
       },
       {
-        path: 'video',
+        path: '/video',
         component: Video
       },
       {
-        path: 'mymusic',
+        path: '/mymusic',
         component: MyMusic
       },
       {
-        path: 'friends',
+        path: '/friends',
         component: Friends
       },
       {
-        path: 'me',
+        path: '/me',
         component: Me
-      }
+      },
     ]
   }
 ]
