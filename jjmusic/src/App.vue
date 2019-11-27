@@ -1,13 +1,23 @@
 <template>
   <div id="app">
-    <router-view/>
+      <Tabbar></Tabbar>
+      <router-view></router-view>
   </div>
 </template>
 
-
+<script>
+import Tabbar from './components/tabbar/tab'
+export default {
+  name: 'baseview',
+  components: {
+    Tabbar
+  }
+}
+</script>
 
 
 <style lang="scss">
+@import './style/scss/index.scss';
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,5 +36,13 @@
       color: #42b983;
     }
   }
+}
+
+#rootview {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 </style>

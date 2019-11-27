@@ -98,7 +98,7 @@
                 </div>
             </div>
         </Scroll>
-        <router-view></router-view>
+        <router-view/>
     </div>
 </template>
 
@@ -151,7 +151,7 @@ import { mapMutations, mapActions } from 'vuex';
         selectList (item) {
             console.log(item)
             this.$router.push({
-                path: `/discovery/${item.id}`
+                path: '/discovery/test'
             })
             this.setMusicList(item)
         },
