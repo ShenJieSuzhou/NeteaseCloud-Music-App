@@ -10,11 +10,11 @@ import About from '../pages/About.vue'
 // import App from '../App'
 // import MusicList from '../components/musicList/musicList.vue'
 
-// const MusicList = (resolve) => {
-//   import('../components/musicList/musicList.vue').then((module) => {
-//     resolve(module)
-//   })
-// }
+const MusicList = (resolve) => {
+  import('../components/musicList/musicList.vue').then((module) => {
+    resolve(module)
+  })
+}
 
 Vue.use(Router)
 
@@ -44,6 +44,10 @@ export default new Router({
         {
           path: 'test',
           component: About
+        },
+        {
+          path: ':id',
+          component: MusicList
         }
       ]
     },

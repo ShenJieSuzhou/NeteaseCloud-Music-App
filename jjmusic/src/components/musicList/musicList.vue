@@ -1,15 +1,15 @@
 <template>
     <transition name="slide" mode="out-in">
         <div class="music-list">
-            <div class="header" ref="header">
+            <!-- <div class="header" ref="header">
                 <div class="back" @click="back">
                     <i class="fa fa-angle-left"></i>
                 </div>
                 <div class="text">
                     <h1 class="title">{{headerTitle}}</h1>
                 </div>
-            </div>
-            <scroll class="list" @scroll="scroll" :probe-type="probeType" :listen-scroll="listenScroll" :data="listDetail" ref="list">
+            </div> -->
+            <!-- <scroll class="list" @scroll="scroll" :probe-type="probeType" :listen-scroll="listenScroll" :data="listDetail" ref="list">
                 <div class="music-list-wrapper">
                     <div class="bg-image" :style="bgStyle" ref="bgImage">
                         <div class="filter"></div>
@@ -30,19 +30,19 @@
                         <song-list @select="selectItem" :songs="listDetail"></song-list>
                     </div>
                 </div>
-            </scroll>
-            <div v-show="!listDetail.length" class="loading-content">
+            </scroll> -->
+            <!-- <div v-show="!listDetail.length" class="loading-content">
                 <loading></loading>
-            </div>
+            </div> -->
         </div>
     </transition>
      
 </template>
 
 <script>
-import Scroll from '../scroll/scroll'
-import SongList from '../songLists/songList'
-import Loading  from '../loading/loading'
+// import Scroll from '../scroll/scroll'
+// import SongList from '../songLists/songList'
+// import Loading  from '../loading/loading'
 import {getRecommendListDetail} from '../../api/recommend.js'
 import {ERR_OK} from '../../utils/config.js'
 import {createRecommendListSong} from '../../api/getSong.js'
@@ -151,9 +151,9 @@ export default {
             }
         },
         components: {
-            SongList,
-            Scroll,
-            Loading
+            // SongList,
+            // Scroll,
+            // Loading
         }
 }
 </script>
