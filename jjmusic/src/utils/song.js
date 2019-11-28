@@ -1,14 +1,11 @@
 export default class Song {
-    constructor ({id, mid, singer, name, album, duration, image, url, aliaName}) {
+    constructor ({id, singer, name, album, image, aliaName}) {
         this.id = id
-        this.mid = mid
         this.singer = singer
         this.name = name
         this.album = album
         this.aliaName = aliaName
-        this.duration = duration
         this.image = image
-        this.url = url
     }
 }
 
@@ -23,12 +20,12 @@ function singerName (arr) {
 export function createRecommendSong (music) {
     return new Song({
         id: music.id,
-        singer: singerName(music.song.artists),
+        singer: singerName(music.ar),
         name: music.name,
-        // aliaName: music.song.alias.join('-'),
-        album: music.song.album.name,
-        image: music.song.album.picUrl 
-    })
+        album: music.al.name,
+        image: music.al.picUrl,
+        aliaName: music.al.name
+      })
 }
 
 export function createRecommendListSong (music) {
@@ -36,9 +33,9 @@ export function createRecommendListSong (music) {
         id: music.id,
         singer: singerName(music.ar),
         name: music.name,
-        // aliaName: music.song.alias.join('-'),
         album: music.al.name,
-        image: music.al.picUrl
+        image: music.al.picUrl,
+        aliaName: music.al.name
       })
 }
 
@@ -47,8 +44,8 @@ export function createSong (music) {
         id: music.id,
         singer: singerName(music.ar),
         name: music.name,
-        // aliaName: filiterAliaName(music.alia),
         album: music.al.name,
-        image: music.al.picUrl
+        image: music.al.picUrl,
+        aliaName: music.al.name
       })
 }

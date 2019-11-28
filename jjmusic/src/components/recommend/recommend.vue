@@ -46,7 +46,6 @@
                             <div class="icon" @click="selectList(item)">
                                 <div class="gradients"></div>
                                 <img :src="item.picUrl">
-                                 
                             </div>
                             <p class="play-count">
                                 <i class="fa fa-headphones"></i>
@@ -126,10 +125,6 @@ import { mapMutations, mapActions } from 'vuex';
     methods: {
         onChange(index) {
             console.log('当前 Swipe 索引：' + index);
-        },
-
-        selectBanner (item) {
-            console.log(item)
         },
 
         selectPrivateFM () {
