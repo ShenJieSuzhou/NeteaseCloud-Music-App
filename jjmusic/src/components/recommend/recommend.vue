@@ -151,12 +151,7 @@ import { mapMutations, mapActions } from 'vuex';
         selectList (item) {
             console.log(item)
             this.$router.push({
-                // name: 'Recommend',
-                // params: {
-                //     id: item.id
-                // }
                 path: `/discovery/${item.id}`
-                // path: 'test'
             })
             this.setMusicList(item)
         },

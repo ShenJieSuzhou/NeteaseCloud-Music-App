@@ -1,15 +1,15 @@
 <template>
     <transition name="slide" mode="out-in">
         <div class="music-list">
-            <!-- <div class="header" ref="header">
+            <div class="header" ref="header">
                 <div class="back" @click="back">
                     <i class="fa fa-angle-left"></i>
                 </div>
                 <div class="text">
                     <h1 class="title">{{headerTitle}}</h1>
                 </div>
-            </div> -->
-            <!-- <scroll class="list" @scroll="scroll" :probe-type="probeType" :listen-scroll="listenScroll" :data="listDetail" ref="list">
+            </div>
+             <scroll class="list" @scroll="scroll" :probe-type="probeType" :listen-scroll="listenScroll" :data="listDetail" ref="list">
                 <div class="music-list-wrapper">
                     <div class="bg-image" :style="bgStyle" ref="bgImage">
                         <div class="filter"></div>
@@ -30,19 +30,19 @@
                         <song-list @select="selectItem" :songs="listDetail"></song-list>
                     </div>
                 </div>
-            </scroll> -->
-            <!-- <div v-show="!listDetail.length" class="loading-content">
+            </scroll> 
+            <div v-show="!listDetail.length" class="loading-content">
                 <loading></loading>
-            </div> -->
+            </div>
         </div>
     </transition>
      
 </template>
 
 <script>
-// import Scroll from '../scroll/scroll'
-// import SongList from '../songLists/songList'
-// import Loading  from '../loading/loading'
+import Scroll from '../scroll/scroll'
+import SongList from '../songLists/songList'
+import Loading  from '../loading/loading'
 import {getRecommendListDetail} from '../../api/recommend.js'
 import {ERR_OK} from '../../utils/config.js'
 import {createRecommendListSong} from '../../api/getSong.js'
@@ -52,7 +52,6 @@ const RESERVED_HEIGHT = 44
 
 export default {
     mixins: [playlistMixin],
-
     data () {
         return {
             listDetail: [],
@@ -60,14 +59,14 @@ export default {
             headerTitle: '歌单'
         }
     },
-    created () {
+    created() {
         this._getRecommendListDetail(this.musicList.id)
         this.probeType = 3
         this.listenScroll = true
     },
     mounted () {
-        this.imageHeight = this.$refs.bgImage.clientHeight
-        this.minTranslateY = -this.imageHeight + RESERVED_HEIGHT
+    this.imageHeight = this.$refs.bgImage.clientHeight
+    this.minTranslateY = -this.imageHeight + RESERVED_HEIGHT
     },
     computed: {
         playCount () {
@@ -102,26 +101,26 @@ export default {
                 index: index
             })
         },
-        scroll (pos) {
-            this.scrollY = pos.y
-        },
         back () {
             this.$router.back()
+        },
+        scroll (pos) {
+            this.scrollY = pos.y
         },
         _getRecommendListDetail (id) {
             if (!id) {
                 this.$router.push('/discovery')
                 return
             }
-            getRecommendListDetail(id).then((res) => {
-                if (res.status === ERR_OK) {
-                    this.listDetail = res.data.result.tracks.map((item) => {
-                        return createRecommendListSong(item)
-                    })
-                } else {
-                    console.error('getRecommendListDetail 获取失败!')
-                }
-            })
+        getRecommendListDetail(id).then((res) => {
+            if (res.status === ERR_OK) {
+                this.listDetail = res.data.result.tracks.map((item) => {
+                    return createRecommendListSong(item)
+                })
+            } else {
+                console.error('getRecommendListDetail 获取失败!')
+            }
+        })
         },
         sequence () {
             let list = this.listDetail
@@ -135,26 +134,27 @@ export default {
         ])
     },
     watch: {
-            scrollY (newY) {
-                // let translateY = Math.max(this.minTranslateY, newY)
-                const percent = Math.abs(newY / this.imageHeight)
-                if (newY < (this.minTranslateY + RESERVED_HEIGHT - 20)) {
-                    this.headerTitle = this.musicList.name
-                } else {
-                    this.headerTitle = '歌单'
-                }
-                if (newY < 0) {
-                    this.$refs.header.style.background = `rgba(212, 68, 57, ${percent})`
-                } else {
-                    this.$refs.header.style.background = `rgba(212, 68, 57, 0)`
-                }
+        scrollY (newY) {
+            // let translateY = Math.max(this.minTranslateY, newY)
+            const percent = Math.abs(newY / this.imageHeight)
+            if (newY < (this.minTranslateY + RESERVED_HEIGHT - 20)) {
+                this.headerTitle = this.musicList.name
+            } else {
+                this.headerTitle = '歌单'
             }
-        },
-        components: {
-            // SongList,
-            // Scroll,
-            // Loading
+            if (newY < 0) {
+                this.$refs.header.style.background = `rgba(212, 68, 57, ${percent})`
+            } else {
+                this.$refs.header.style.background = `rgba(212, 68, 57, 0)`
+            }
         }
+    },
+    components: {
+        SongList,
+        Loading,
+        Scroll,
+    }
+
 }
 </script>
 
