@@ -45,7 +45,7 @@ import SongList from '../songLists/songList'
 import Loading  from '../loading/loading'
 import {getRecommendListDetail} from '../../api/recommend.js'
 import {ERR_OK} from '../../utils/config.js'
-// import {createRecommendListSong} from '../../utils/song.js'
+import {createRecommendListSong} from '../../utils/song.js'
 import {playlistMixin} from '../../utils/mixin.js'
 import {mapGetters, mapActions} from 'vuex'
 const RESERVED_HEIGHT = 44
@@ -112,16 +112,15 @@ export default {
                 this.$router.push('/discovery')
                 return
             }
-        getRecommendListDetail(id).then((res) => {
-            if (res.status === ERR_OK) {
-                // this.listDetail = res.data.playlist.tracks.map((item) => {
-                //     return [createRecommendListSong(item)]
-                // })
-                this.listDetail = res.data.playlist.tracks;
-            } else {
-                console.error('getRecommendListDetail 获取失败!')
-            }
-        })
+            getRecommendListDetail(id).then((res) => {
+                if (res.status === ERR_OK) {
+                    this.listDetail = res.data.playlist.tracks.map((item) => {
+                        return createRecommendListSong(item)
+                    })
+                } else {
+                    console.error('getRecommendListDetail 获取失败!')
+                }
+            })
         },
         sequence () {
             let list = this.listDetail

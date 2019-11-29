@@ -5,7 +5,7 @@
        <p class="count">{{ index + 1 }}</p>
        <div class="content">
          <h2 class="name">{{ song.name }}</h2>
-         <p class="desc">{{ song.ar[0].name }} - {{ song.al[0].name }}</p>
+         <p class="desc">{{ getDesc(song) }}</p>
        </div>
      </li>
    </ul>
@@ -24,12 +24,10 @@ export default {
       this.$emit('select', item, index)
     },
     getDesc (song) {
-      if (song.al.name) {
-          console.log('11111111')
-        return `${song.ar.name} - ${song.al.name}`
+      if (song.singer) {
+        return `${song.singer} - ${song.album}`
       } else {
-          console.log('222222222')
-        return `${song.ar.name}`
+        return `${song.album}`
       }
     }
   }
